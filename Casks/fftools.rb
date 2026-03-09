@@ -3,7 +3,7 @@ cask "fftools" do
   name "fftools"
   desc "Utilities for analyzing, viewing and fixing file formats."
   homepage "https://tools.fileformat.info/"
-  version "0.1.7"
+  version "0.1.8"
 
   livecheck do
     skip "Auto-generated on release."
@@ -24,28 +24,38 @@ cask "fftools" do
   on_macos do
     on_intel do
       url "https://github.com/FileFormatInfo/fftools/releases/download/#{version}/fftools_Darwin_x86_64.tar.gz"
-      sha256 "fcc900d7d578269633d5ff2e735de416521d3f65fcca8b75084a4d6d8ffbc9ec"
+      sha256 "d862091d9ffbb618fd650c37ea0167b4460fc2f2e0fcc0c9c9fad715dd5e5c5e"
     end
     on_arm do
       url "https://github.com/FileFormatInfo/fftools/releases/download/#{version}/fftools_Darwin_arm64.tar.gz"
-      sha256 "ab239fdfc8310352671a1c8ec47523d60e119e547e69faa81ba450b572c1e5f8"
+      sha256 "cf9e357ad03feb79094a5496f4d75c9af366aaddafebec9373946cf873a7258b"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/FileFormatInfo/fftools/releases/download/#{version}/fftools_Linux_x86_64.tar.gz"
-      sha256 "c63774f4942b42d703928db52912ccc2d0d61f9bcc52f8fc4a062f7b1ed7aff6"
+      sha256 "f725c88b275164e9bb9922d22fbf255c7723f78af30bf8d1ad8acc3ce5916927"
     end
     on_arm do
       url "https://github.com/FileFormatInfo/fftools/releases/download/#{version}/fftools_Linux_arm64.tar.gz"
-      sha256 "79303da4442ad30fbe70ef5e26f129acde48bb90cd3482797b6bd95fee347651"
+      sha256 "51ecfbdc2da34496acbe8f143bd5190f3869cab8cd6ca8ebceaa163fb5b5b710"
     end
   end
 
   postflight do
     if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/*"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/asciify"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/asciitable"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/bytecount"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/certinfo"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/ghash"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/hexdumpc"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/hosty"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/unhexdump"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/unicount"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/uniwhat"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/urly"]
     end
   end
 
