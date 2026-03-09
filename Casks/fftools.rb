@@ -3,7 +3,7 @@ cask "fftools" do
   name "fftools"
   desc "Utilities for analyzing, viewing and fixing file formats."
   homepage "https://tools.fileformat.info/"
-  version "0.1.6"
+  version "0.1.7"
 
   livecheck do
     skip "Auto-generated on release."
@@ -24,22 +24,28 @@ cask "fftools" do
   on_macos do
     on_intel do
       url "https://github.com/FileFormatInfo/fftools/releases/download/#{version}/fftools_Darwin_x86_64.tar.gz"
-      sha256 "34b3e51309d5777bdcae4cfabbda2ff706ae11cc14a97b35d81c7f433351d93c"
+      sha256 "fcc900d7d578269633d5ff2e735de416521d3f65fcca8b75084a4d6d8ffbc9ec"
     end
     on_arm do
       url "https://github.com/FileFormatInfo/fftools/releases/download/#{version}/fftools_Darwin_arm64.tar.gz"
-      sha256 "790ffc89b610094733a9f190907d414fa4748d32a7b4577832fc0d7538e66725"
+      sha256 "ab239fdfc8310352671a1c8ec47523d60e119e547e69faa81ba450b572c1e5f8"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/FileFormatInfo/fftools/releases/download/#{version}/fftools_Linux_x86_64.tar.gz"
-      sha256 "a2b20b396395c8acd90fe8c8421315aace63a2e5f246b7949d6ccb58f6a787bf"
+      sha256 "c63774f4942b42d703928db52912ccc2d0d61f9bcc52f8fc4a062f7b1ed7aff6"
     end
     on_arm do
       url "https://github.com/FileFormatInfo/fftools/releases/download/#{version}/fftools_Linux_arm64.tar.gz"
-      sha256 "33711a28cd8f83660a9050c5e14335ec7f8fd8217f5d0f8d5913a181a752029e"
+      sha256 "79303da4442ad30fbe70ef5e26f129acde48bb90cd3482797b6bd95fee347651"
+    end
+  end
+
+  postflight do
+    if OS.mac?
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/*"]
     end
   end
 
