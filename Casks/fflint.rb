@@ -3,7 +3,7 @@ cask "fflint" do
   name "fflint"
   desc "File formt linter"
   homepage "https://www.fflint.dev/"
-  version "0.0.17"
+  version "0.0.18"
 
   livecheck do
     skip "Auto-generated on release."
@@ -17,22 +17,22 @@ cask "fflint" do
   on_macos do
     on_intel do
       url "https://github.com/FileFormatInfo/fflint/releases/download/v#{version}/fflint_Darwin_x86_64.tar.gz"
-      sha256 "b8e5c4e8ff4b839d646423f37af3cc907b2b405ded7a6fdbd1b4009ab4592bff"
+      sha256 "7857cae48b0401da6e483f99f67274a0d9d5e7663164dbf75eb7786bec273e5f"
     end
     on_arm do
       url "https://github.com/FileFormatInfo/fflint/releases/download/v#{version}/fflint_Darwin_arm64.tar.gz"
-      sha256 "cef0d9b66e9606be804dcd77a097b4e5a3096fb28c8b932d908080a4630f4b8f"
+      sha256 "7d4ecd682500c74b6bcf975e25dc08fc3f62757e95f4317cd4b9c67818a0ce44"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/FileFormatInfo/fflint/releases/download/v#{version}/fflint_Linux_x86_64.tar.gz"
-      sha256 "2d39d6819b724dddf7371ef9f72c6652e23b49c287e3dbc3d9162c88a5de20bc"
+      sha256 "62ab3778e0a895809a0523a29e4dfe3ca875fdbb62943963621aa45250cecbed"
     end
     on_arm do
       url "https://github.com/FileFormatInfo/fflint/releases/download/v#{version}/fflint_Linux_arm64.tar.gz"
-      sha256 "6a1c7ef3f6ec85fcd046b4ecb74ca079e2d4290465d61f0d589fa55c6cb522f1"
+      sha256 "e3dcc04f930eaa5367df836bc6dbfd0d292dd6747b06f439bb23c46ebfeba9ab"
     end
   end
 
